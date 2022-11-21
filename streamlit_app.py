@@ -20,7 +20,7 @@ def load_data(nrows):
 
 st.title('Sorteo de fin de año')
 
-st.dataframe(data)
+st.dataframe(pd.read_csv(DATA_URL)
 
 st.write('última actualización de datos')
 data_load_state = st.text('Loading data...')
