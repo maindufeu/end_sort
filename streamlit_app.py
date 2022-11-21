@@ -10,11 +10,6 @@ import pandas as pd
 ######################################################################################################################################
 DATE_COLUMN = 'daily'
 DATA_URL = ('https://waop.s3.amazonaws.com/sort.csv')
-#datastreams_id = [6,63,101,89,98,97,99]
-datastreams_id = []
-dataframe = pd.DataFrame(
-    np.random.randn(10, 20),
-    columns=('col %d' % i for i in range(20)))
 ######################################################################################################################################
 @st.cache
 def load_data(nrows):
@@ -25,7 +20,7 @@ def load_data(nrows):
 
 st.title('Sorteo de fin de año')
 
-st.dataframe(data.style.highlight_max(axis=0))
+st.dataframe(data)
 
 st.write('última actualización de datos')
 data_load_state = st.text('Loading data...')
