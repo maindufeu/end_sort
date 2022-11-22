@@ -6,8 +6,6 @@ from datetime import date
 import numpy as np
 import pandas as pd
 import random
-import graphviz
-
 DATA_URL = ('https://waop.s3.amazonaws.com/sort.csv')
 st.title('Sorteo de fin de año')
 
