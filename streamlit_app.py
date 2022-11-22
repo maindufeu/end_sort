@@ -55,7 +55,6 @@ if st.button('Grandes'):
     st.write(d)
     d = str(d).replace(':', '->')
     st.graphviz_chart('digraph {'+d+'}'
-    
 else:
     st.write('...')
     
