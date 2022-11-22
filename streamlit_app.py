@@ -6,6 +6,7 @@ from datetime import date
 import numpy as np
 import pandas as pd
 import random
+import graphviz
 
 DATA_URL = ('https://waop.s3.amazonaws.com/sort.csv')
 st.title('Sorteo de fin de año')
@@ -60,8 +61,6 @@ if st.button('Chicos'):
     st.write(secret_santa("Chico"))
 else:
     st.write('...')
-
-import graphviz
 
 # Create a graphlib graph object
 graph = graphviz.Digraph()
