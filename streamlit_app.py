@@ -52,6 +52,20 @@ def secret_santa(category_name):
 if st.button('Grandes'):
     d = secret_santa("Grande")
     st.write(d)
+    graph_grande = "{}".format(d)
+    s0 = graph_grande.replace("'",'')
+    s1 = s0.replace(":",' -> ')
+    s2 = s1.replace(",","\n")
+    s3 = s2.replace("{","").replace("}","")
+
+    sf = """
+    '''
+    diagraph {{
+
+    {}
+
+    }}''' 
+    """.format(s3)
 else:
     st.write('...')
     
@@ -59,21 +73,5 @@ if st.button('Chicos'):
     st.write(secret_santa("Chico"))
 else:
     st.write('...')
-
-# Create a graphlib graph object
-graph = graphviz.Digraph()
-graph.edge('run', 'intr')
-graph.edge('intr', 'runbl')
-graph.edge('runbl', 'run')
-graph.edge('run', 'kernel')
-graph.edge('kernel', 'zombie')
-graph.edge('kernel', 'sleep')
-graph.edge('kernel', 'runmem')
-graph.edge('sleep', 'swap')
-graph.edge('swap', 'runswap')
-graph.edge('runswap', 'new')
-graph.edge('runswap', 'runmem')
-graph.edge('new', 'runmem')
-graph.edge('sleep', 'runmem')
-
-st.graphviz_chart(graph)
+    
+st.graphviz_chart(sf)
