@@ -6,7 +6,6 @@ from datetime import date
 import numpy as np
 import pandas as pd
 import random
-import graphviz
 
 DATA_URL = ('https://waop.s3.amazonaws.com/sort.csv')
 st.title('Sorteo de fin de año')
@@ -78,20 +77,19 @@ if st.button('Chicos'):
 else:
     st.write('...')
     
-st.graphviz_chart('''
-    digraph {
-        run -> intr
-        intr -> runbl
-        runbl -> run
-        run -> kernel
-        kernel -> zombie
-        kernel -> sleep
-        kernel -> runmem
-        sleep -> swap
-        swap -> runswap
-        runswap -> new
-        runswap -> runmem
-        new -> runmem
-        sleep -> runmem
-    }
-''')
+graph = graphviz.Digraph()
+graph.edge('run', 'intr')
+graph.edge('intr', 'runbl')
+graph.edge('runbl', 'run')
+graph.edge('run', 'kernel')
+graph.edge('kernel', 'zombie')
+graph.edge('kernel', 'sleep')
+graph.edge('kernel', 'runmem')
+graph.edge('sleep', 'swap')
+graph.edge('swap', 'runswap')
+graph.edge('runswap', 'new')
+graph.edge('runswap', 'runmem')
+graph.edge('new', 'runmem')
+graph.edge('sleep', 'runmem')
+
+st.graphviz_chart(graph)
