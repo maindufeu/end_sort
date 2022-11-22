@@ -53,7 +53,7 @@ def secret_santa(category_name):
 if st.button('Grandes'):
   d = secret_santa("Grande")
   st.write(d)
-  d = str(d).replace(':', '->'))
+  d = str(d).replace(':', '->')
   st.graphviz_chart('digraph {'+d+'}'
     
 else:
