@@ -59,24 +59,6 @@ def secret_santa(category_name):
 
   return closed_circle(chain.to_list())
 
-if st.button('Grandes'):
-    d = secret_santa("Grande")
-    st.write(d)
-    graph_grande = "{}".format(d)
-    s0 = graph_grande.replace("'",'')
-    s1 = s0.replace(":",' -> ')
-    s2 = s1.replace(",","\n")
-    s3 = s2.replace("{","").replace("}","")
-
-    sf = """
-    digraph {{
-    {}
-    }} 
-    """.format(s3)
-    st.graphviz_chart(sf)
-else:
-    st.write('...')
-    
 if st.button('Sortear'):
     d = secret_santa("Chico")
     st.write(d)
