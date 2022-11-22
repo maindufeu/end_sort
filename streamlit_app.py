@@ -11,7 +11,7 @@ DATA_URL = ('https://waop.s3.amazonaws.com/sort.csv')
 st.title('Sorteo de fin de año')
 
 names = pd.read_csv('https://waop.s3.amazonaws.com/sort.csv')
-categoria = ['Grande','Grande','Chico','Chico','Grande','Grande','Chico','Grande','Grande','Chico','Chico','Grande','Grande','Grande','Grande','Chico','Grande']
+categoria = ['Grande','Grande','Chico','Chico','Grande','Grande','Chico','Grande','Grande','Grande','Chico','Grande','Grande','Grande','Grande','Chico','Grande']
 names['Categoria'] = categoria
 names['Nombre'][names['Nombre']=='Juan Pablo'] = 'Pablo'
 st.dataframe(names)
