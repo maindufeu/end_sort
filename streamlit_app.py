@@ -9,12 +9,11 @@ import random
 
 DATA_URL = ('https://waop.s3.amazonaws.com/sort.csv')
 st.title('Sorteo de fin de año')
-st.dataframe(pd.read_csv(DATA_URL))
 
 names = pd.read_csv('https://waop.s3.amazonaws.com/sort.csv')
 categoria = ['Grande','Grande','Chico','Chico','Grande','Grande','Chico','Grande','Grande','Chico','Chico','Grande','Grande','Grande','Grande','Chico','Grande']
 names['Categoria'] = categoria
-
+st.dataframe(names)
 def secret_santa(category_name):
 
   def shuffling (category_name):
@@ -54,9 +53,9 @@ def secret_santa(category_name):
 if st.button('Grandes'):
     st.write(secret_santa("Grande"))
 else:
-    st.write('oops!')
+    st.write('...')
     
 if st.button('Chicos'):
     st.write(secret_santa("Chico"))
 else:
-    st.write('oops!')
+    st.write('...')
