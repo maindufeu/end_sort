@@ -60,12 +60,9 @@ if st.button('Grandes'):
     s3 = s2.replace("{","").replace("}","")
 
     sf = """
-    '''
     digraph {{
-
     {}
-
-    }}''' 
+    }} 
     """.format(s3)
     st.write(sf)
     st.graphviz_chart(sf)
