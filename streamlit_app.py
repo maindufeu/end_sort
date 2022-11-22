@@ -51,10 +51,10 @@ def secret_santa(category_name):
   return closed_circle(chain.to_list())
 
 if st.button('Grandes'):
-  d = secret_santa("Grande")
-  st.write(d)
-  d = str(d).replace(':', '->')
-  st.graphviz_chart('digraph {'+d+'}'
+    d = secret_santa("Grande")
+    st.write(d)
+    d = str(d).replace(':', '->')
+    st.graphviz_chart('digraph {'+d+'}'
     
 else:
     st.write('...')
