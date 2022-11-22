@@ -70,7 +70,7 @@ else:
     st.write('...')
     
 if st.button('Chicos'):
-        d = secret_santa("Chico")
+    d = secret_santa("Chico")
     st.write(d)
     graph_grande = "{}".format(d)
     s0 = graph_grande.replace("'",'')
