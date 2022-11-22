@@ -70,20 +70,21 @@ else:
     st.write('...')
     
 if st.button('Chicos'):
-    st.write(secret_santa("Chico"))
+        d = secret_santa("Chico")
+    st.write(d)
+    graph_grande = "{}".format(d)
+    s0 = graph_grande.replace("'",'')
+    s1 = s0.replace(":",' -> ')
+    s2 = s1.replace(",","\n")
+    s3 = s2.replace("{","").replace("}","")
+
+    sf = """
+    digraph {{
+    {}
+    }} 
+    """.format(s3)
+    st.write(sf)
+    st.graphviz_chart(sf)
 else:
     st.write('...')
     
-st.graphviz_chart('''
-    digraph {
-        run -> intr intr -> runbl runbl -> run run -> kernel kernel -> zombie
-kernel -> sleep
-kernel -> runmem
-sleep -> swap
-swap -> runswap
-runswap -> new
-runswap -> runmem
-new -> runmem
-sleep -> runmem
-    }
-''')
