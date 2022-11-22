@@ -79,8 +79,7 @@ else:
     
 st.graphviz_chart('''
     digraph {
-        run -> intr
-        intr -> runbl
+        run -> intr intr -> runbl
         runbl -> run
         run -> kernel
         kernel -> zombie
