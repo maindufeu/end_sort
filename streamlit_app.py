@@ -77,7 +77,7 @@ if st.button('Grandes'):
 else:
     st.write('...')
     
-if st.button('Chicos'):
+if st.button('Sortear'):
     d = secret_santa("Chico")
     st.write(d)
     graph_grande = "{}".format(d)
@@ -91,7 +91,21 @@ if st.button('Chicos'):
     {}
     }} 
     """.format(s3)
-    st.graphviz_chart(sf)
+    
+    g = secret_santa("Grande")
+    st.write(g)
+    graph_grande = "{}".format(g)
+    s0 = graph_grande.replace("'",'')
+    s1 = s0.replace(":",' -> ')
+    s2 = s1.replace(",","\n")
+    s3 = s2.replace("{","").replace("}","")
+
+    sfg = """
+    digraph {{
+    {}
+    }} 
+    """.format(s3)
+    st.graphviz_chart(sfg)
 else:
     st.write('...')
     
