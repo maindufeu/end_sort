@@ -87,6 +87,7 @@ if st.button('Sortear'):
     {}
     }} 
     """.format(s3)
+    st.graphviz_chart(sf)
     st.graphviz_chart(sfg)
 else:
     st.write('...')
