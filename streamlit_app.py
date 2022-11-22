@@ -65,7 +65,6 @@ if st.button('Grandes'):
     {}
     }} 
     """.format(s3)
-    st.write(sf)
     st.graphviz_chart(sf)
 else:
     st.write('...')
@@ -84,7 +83,6 @@ if st.button('Chicos'):
     {}
     }} 
     """.format(s3)
-    st.write(sf)
     st.graphviz_chart(sf)
 else:
     st.write('...')
