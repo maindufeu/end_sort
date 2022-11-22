@@ -51,7 +51,12 @@ def secret_santa(category_name):
 
   return closed_circle(chain.to_list())
 
-if st.button('Say hello'):
+if st.button('Grandes'):
     st.write(secret_santa("Grande"))
 else:
-    st.write('Goodbye')
+    st.write('oops!')
+    
+if st.button('Chicos'):
+    st.write(secret_santa("Chico"))
+else:
+    st.write('oops!')
