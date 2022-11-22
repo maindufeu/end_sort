@@ -27,15 +27,23 @@ def secret_santa(category_name):
       df = df.reset_index()[["Nombre", "Familia", "Categoria"]]
       L = L.append(df.reset_index(), ignore_index=True)
 
-    L = L.sort_values(by="index")[["Nombre", "Familia"]]
+    L = L.sort_values(by="index")[["Nombre", "Familia", 'index']]
 
     first = L.iloc[0]["Familia"]
     last = L.iloc[len(L)-1]["Familia"]
 
-    if(first != last):
+    ups = False
+    ll = list(L['Familia'])
+    for i in range(len(ll)-1):
+      if ll[i] == ll[i+1]:
+        ups = True
+        break
+
+    if(first != last and ups == False):
       return(L)
     else:
       return(shuffling(category_name))
+    
     
 
   chain = shuffling(category_name)["Nombre"]
